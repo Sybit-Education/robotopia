@@ -27,7 +27,8 @@
     "action-overlay": "git+https://github.com/robotopia-x/start_action_screen.git",
     "sheetify": "^7.3.3",
     "uid": "0.0.2",
-    "x2js": "https://github.com/abdmob/x2js.git"
+    "x2js": "https://github.com/abdmob/x2js.git",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -45,7 +46,9 @@
     "lint": "standard --fix",
     "start": "budo index.js:bundle.js",
     "build": "browserify index.js -t yo-yoify -t sheetify/transform -t [ babelify --presets [ es2015 stage-2 ] ] > bundle.js",
-    "deploy": "./bin/deploy.sh"
+    "deploy": "./bin/deploy.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -57,5 +60,6 @@
     "url": "https://github.com/hdm-project/robot-ide/issues"
   },
   "homepage": "https://github.com/hdm-project/robot-ide#readme",
-  "private": true
+  "private": true,
+  "snyk": true
 }
